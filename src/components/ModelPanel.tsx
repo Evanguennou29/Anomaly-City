@@ -1,13 +1,13 @@
 import { useSnapshot } from '../hooks/useSnapshot';
 
-/** État du modèle, seuil calibré, métriques réelles et explication pédagogique. */
+/** État du modèle, seuil calibré et métriques calculées. */
 export function ModelPanel() {
   const s = useSnapshot();
   const m = s.modelStats;
   const metrics = s.metrics;
 
   return (
-    <section className="panel model-panel" aria-label="État du modèle et explication">
+    <section className="panel model-panel" aria-label="État du modèle et métriques">
       <header className="panel-head">
         <h2 className="panel-title">Modèle</h2>
         <span className={`chip chip-${s.modelPhase}`}>{modelLabel(s.modelPhase, s.trainingProgress)}</span>
@@ -82,30 +82,6 @@ export function ModelPanel() {
           </div>
         </div>
       )}
-
-      <details className="how-it-works">
-        <summary>Comment fonctionne le modèle ?</summary>
-        <div className="how-body">
-          <p>
-            Un <strong>autoencodeur</strong> est un réseau de neurones qui apprend à <em>recopier</em> son entrée à
-            travers un goulot d'étranglement. On ne lui montre que des journées <strong>normales</strong> : il apprend
-            les corrélations habituelles entre électricité, trafic et latence des 6 quartiers.
-          </p>
-          <p>
-            À chaque instant, le modèle tente de reconstruire les 18 capteurs. Le <strong>score d'anomalie</strong> est
-            l'écart entre l'entrée et cette reconstruction : plus l'écart est grand, plus la situation est inhabituelle.
-          </p>
-          <p>
-            Le <strong>seuil</strong> n'est pas arbitraire : il est calibré sur un jeu de validation normal
-            (99<sup>e</sup> centile des erreurs). Quand le score dépasse ce seuil de façon persistante, l'incident est
-            signalé, et l'on remonte aux capteurs qui ont le plus contribué à l'erreur.
-          </p>
-          <p className="how-note">
-            ⚠️ Toutes les données et métriques de cette démonstration sont <strong>100 % simulées</strong>, générées de
-            façon reproductible dans votre navigateur. Aucune donnée réelle n'est utilisée.
-          </p>
-        </div>
-      </details>
     </section>
   );
 }
