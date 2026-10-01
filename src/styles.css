@@ -150,39 +150,6 @@ body {
   color: var(--amber);
 }
 
-/* ---------- Bandeau données simulées ---------- */
-
-.sim-badge {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  padding: 8px 20px;
-  font-size: 0.75rem;
-  letter-spacing: 0.05em;
-  color: var(--muted);
-  background: rgba(53, 224, 255, 0.04);
-  border-bottom: 1px solid var(--panel-border);
-}
-
-.sim-badge-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--cyan);
-  box-shadow: 0 0 8px var(--cyan);
-  animation: pulse 2s infinite;
-}
-
-.sim-badge.is-alert {
-  color: #ffd7de;
-  background: rgba(255, 77, 109, 0.09);
-}
-
-.sim-badge.is-alert .sim-badge-dot {
-  background: var(--red);
-  box-shadow: 0 0 8px var(--red);
-}
-
 /* ---------- Mise en page ---------- */
 
 .main-layout {
@@ -863,9 +830,7 @@ kbd {
 }
 
 .how-it-works {
-  margin-top: 14px;
-  border-top: 1px solid rgba(53, 224, 255, 0.1);
-  padding-top: 12px;
+  width: 100%;
 }
 
 .how-it-works summary {
@@ -957,16 +922,6 @@ kbd {
   font-size: 0.7rem;
   color: var(--muted);
   margin-left: auto;
-}
-
-/* ---------- Pied de page ---------- */
-
-.footer-note {
-  padding: 14px 20px 24px;
-  color: var(--muted);
-  font-size: 0.72rem;
-  text-align: center;
-  letter-spacing: 0.04em;
 }
 
 /* ---------- Responsive ---------- */
