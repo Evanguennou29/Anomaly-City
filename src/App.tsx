@@ -8,6 +8,7 @@ import { ControlPanel } from './components/ControlPanel';
 import { DistrictPanel } from './components/DistrictPanel';
 import { EventLog } from './components/EventLog';
 import { ModelPanel } from './components/ModelPanel';
+import { HowItWorks } from './components/HowItWorks';
 
 const INCIDENT_KEYS: Record<string, IncidentType> = {
   '1': 'power',
@@ -70,11 +71,6 @@ export default function App() {
         </div>
       </header>
 
-      <div className={`sim-badge${s.detected ? ' is-alert' : ''}`} role="status">
-        <span className="sim-badge-dot" />
-        Données 100 % simulées — générées en direct dans votre navigateur
-      </div>
-
       <main className="main-layout">
         <div className="col-main">
           <section className="city-stage" aria-label="Ville">
@@ -115,6 +111,7 @@ export default function App() {
           </section>
 
           <ScoreChart />
+          <HowItWorks />
         </div>
 
         <div className="col-side">
@@ -124,11 +121,6 @@ export default function App() {
           <ModelPanel />
         </div>
       </main>
-
-      <footer className="footer-note">
-        ANOMALY CITY — démonstration pédagogique. Le modèle (autoencodeur TensorFlow.js) tourne entièrement dans votre
-        navigateur, sans serveur ni compte. Aucune donnée réelle n'est utilisée.
-      </footer>
     </div>
   );
 }
